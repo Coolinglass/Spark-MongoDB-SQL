@@ -1,0 +1,2617 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "ba1a5319",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting matplotlib\n",
+      "  Using cached https://files.pythonhosted.org/packages/09/03/b7b30fa81cb687d1178e085d0f01111ceaea3bf81f9330c937fb6f6c8ca0/matplotlib-3.3.4-cp36-cp36m-manylinux1_x86_64.whl\n",
+      "Collecting pillow>=6.2.0 (from matplotlib)\n",
+      "  Using cached https://files.pythonhosted.org/packages/7d/2a/2fc11b54e2742db06297f7fa7f420a0e3069fdcf0e4b57dfec33f0b08622/Pillow-8.4.0.tar.gz\n",
+      "Requirement already satisfied: numpy>=1.15 in ./.local/lib/python3.6/site-packages (from matplotlib)\n",
+      "Requirement already satisfied: python-dateutil>=2.1 in /usr/local/lib/python3.6/site-packages (from matplotlib)\n",
+      "Requirement already satisfied: kiwisolver>=1.0.1 in ./.local/lib/python3.6/site-packages (from matplotlib)\n",
+      "Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in /usr/local/lib/python3.6/site-packages (from matplotlib)\n",
+      "Requirement already satisfied: cycler>=0.10 in ./.local/lib/python3.6/site-packages (from matplotlib)\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)\n",
+      "Installing collected packages: pillow, matplotlib\n",
+      "  Running setup.py install for pillow ... \u001b[?25lerror\n",
+      "    Complete output from command /usr/bin/python3 -u -c \"import setuptools, tokenize;__file__='/tmp/pip-build-s89e0ye1/pillow/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\\r\\n', '\\n');f.close();exec(compile(code, __file__, 'exec'))\" install --record /tmp/pip-sx11pb7f-record/install-record.txt --single-version-externally-managed --compile --user --prefix=:\n",
+      "    running install\n",
+      "    running build\n",
+      "    running build_py\n",
+      "    creating build\n",
+      "    creating build/lib.linux-x86_64-3.6\n",
+      "    creating build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/XpmImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GribStubImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageDraw2.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ContainerIO.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageGrab.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GimpGradientFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/IptcImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/CurImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/BufrStubImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/_version.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageQt.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GdImageFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/IcoImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/JpegImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/MpoImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/XVThumbImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/MpegImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GimpPaletteFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageStat.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/SgiImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/SpiderImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PalmImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageOps.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/FliImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/FpxImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageWin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PngImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/__main__.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/_util.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/BmpImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageMode.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/XbmImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PcxImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/SunImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageMorph.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageEnhance.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PixarImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImagePalette.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/__init__.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/WalImageFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/DcxImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/EpsImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageFont.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/Jpeg2KImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageDraw.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PpmImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageFilter.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/WmfImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/FontFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PsdImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PcdImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PSDraw.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/McIdasImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PyAccess.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImtImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/Hdf5StubImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GifImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/BlpImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/WebPImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/BdfFontFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PdfParser.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageTransform.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/FtexImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/features.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageChops.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageShow.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/MspImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/TarIO.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ExifTags.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/_binary.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/FitsStubImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageTk.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageCms.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageSequence.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/GbrImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/_tkinter_finder.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PcfFontFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/Image.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/JpegPresets.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PdfImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageMath.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImageColor.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/IcnsImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/ImagePath.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/MicImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/TiffImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/TiffTags.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/DdsImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/TgaImagePlugin.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    copying src/PIL/PaletteFile.py -> build/lib.linux-x86_64-3.6/PIL\n",
+      "    running egg_info\n",
+      "    writing src/Pillow.egg-info/PKG-INFO\n",
+      "    writing dependency_links to src/Pillow.egg-info/dependency_links.txt\n",
+      "    writing top-level names to src/Pillow.egg-info/top_level.txt\n",
+      "    reading manifest file 'src/Pillow.egg-info/SOURCES.txt'\n",
+      "    reading manifest template 'MANIFEST.in'\n",
+      "    warning: no files found matching '*.c'\n",
+      "    warning: no files found matching '*.h'\n",
+      "    warning: no files found matching '*.sh'\n",
+      "    warning: no previously-included files found matching '.appveyor.yml'\n",
+      "    warning: no previously-included files found matching '.clang-format'\n",
+      "    warning: no previously-included files found matching '.coveragerc'\n",
+      "    warning: no previously-included files found matching '.editorconfig'\n",
+      "    warning: no previously-included files found matching '.readthedocs.yml'\n",
+      "    warning: no previously-included files found matching 'codecov.yml'\n",
+      "    warning: no previously-included files matching '.git*' found anywhere in distribution\n",
+      "    warning: no previously-included files matching '*.pyc' found anywhere in distribution\n",
+      "    warning: no previously-included files matching '*.so' found anywhere in distribution\n",
+      "    no previously-included directories found matching '.ci'\n",
+      "    writing manifest file 'src/Pillow.egg-info/SOURCES.txt'\n",
+      "    running build_ext\n",
+      "    \n",
+      "    \n",
+      "    The headers or library files could not be found for zlib,\n",
+      "    a required dependency when compiling Pillow from source.\n",
+      "    \n",
+      "    Please see the install instructions at:\n",
+      "       https://pillow.readthedocs.io/en/latest/installation.html\n",
+      "    \n",
+      "    Traceback (most recent call last):\n",
+      "      File \"/tmp/pip-build-s89e0ye1/pillow/setup.py\", line 1024, in <module>\n",
+      "        zip_safe=not (debug_build() or PLATFORM_MINGW),\n",
+      "      File \"/usr/lib/python3.6/site-packages/setuptools/__init__.py\", line 129, in setup\n",
+      "        return distutils.core.setup(**attrs)\n",
+      "      File \"/usr/lib64/python3.6/distutils/core.py\", line 148, in setup\n",
+      "        dist.run_commands()\n",
+      "      File \"/usr/lib64/python3.6/distutils/dist.py\", line 955, in run_commands\n",
+      "        self.run_command(cmd)\n",
+      "      File \"/usr/lib64/python3.6/distutils/dist.py\", line 974, in run_command\n",
+      "        cmd_obj.run()\n",
+      "      File \"/usr/lib/python3.6/site-packages/setuptools/command/install.py\", line 61, in run\n",
+      "        return orig.install.run(self)\n",
+      "      File \"/usr/lib64/python3.6/distutils/command/install.py\", line 556, in run\n",
+      "        self.run_command('build')\n",
+      "      File \"/usr/lib64/python3.6/distutils/cmd.py\", line 313, in run_command\n",
+      "        self.distribution.run_command(command)\n",
+      "      File \"/usr/lib64/python3.6/distutils/dist.py\", line 974, in run_command\n",
+      "        cmd_obj.run()\n",
+      "      File \"/usr/lib64/python3.6/distutils/command/build.py\", line 135, in run\n",
+      "        self.run_command(cmd_name)\n",
+      "      File \"/usr/lib64/python3.6/distutils/cmd.py\", line 313, in run_command\n",
+      "        self.distribution.run_command(command)\n",
+      "      File \"/usr/lib64/python3.6/distutils/dist.py\", line 974, in run_command\n",
+      "        cmd_obj.run()\n",
+      "      File \"/usr/lib/python3.6/site-packages/setuptools/command/build_ext.py\", line 78, in run\n",
+      "        _build_ext.run(self)\n",
+      "      File \"/usr/lib64/python3.6/distutils/command/build_ext.py\", line 339, in run\n",
+      "        self.build_extensions()\n",
+      "      File \"/tmp/pip-build-s89e0ye1/pillow/setup.py\", line 790, in build_extensions\n",
+      "        raise RequiredDependencyException(f)\n",
+      "    __main__.RequiredDependencyException: zlib\n",
+      "    \n",
+      "    During handling of the above exception, another exception occurred:\n",
+      "    \n",
+      "    Traceback (most recent call last):\n",
+      "      File \"<string>\", line 1, in <module>\n",
+      "      File \"/tmp/pip-build-s89e0ye1/pillow/setup.py\", line 1037, in <module>\n",
+      "        raise RequiredDependencyException(msg)\n",
+      "    __main__.RequiredDependencyException:\n",
+      "    \n",
+      "    The headers or library files could not be found for zlib,\n",
+      "    a required dependency when compiling Pillow from source.\n",
+      "    \n",
+      "    Please see the install instructions at:\n",
+      "       https://pillow.readthedocs.io/en/latest/installation.html\n",
+      "    \n",
+      "    \n",
+      "    \n",
+      "    ----------------------------------------\n",
+      "\u001b[31mCommand \"/usr/bin/python3 -u -c \"import setuptools, tokenize;__file__='/tmp/pip-build-s89e0ye1/pillow/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\\r\\n', '\\n');f.close();exec(compile(code, __file__, 'exec'))\" install --record /tmp/pip-sx11pb7f-record/install-record.txt --single-version-externally-managed --compile --user --prefix=\" failed with error code 1 in /tmp/pip-build-s89e0ye1/pillow/\u001b[0m\n",
+      "\u001b[?25h"
+     ]
+    }
+   ],
+   "source": [
+    "# # uncomment and run the following command to install the matplotlib \n",
+    "!pip3 install matplotlib --user"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "b268380b",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'pyspark'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "Input \u001b[1;32mIn [1]\u001b[0m, in \u001b[0;36m<cell line: 2>\u001b[1;34m()\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[38;5;66;03m# importing the required libraries\u001b[39;00m\n\u001b[1;32m----> 2\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mpyspark\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01msql\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m SparkSession\n\u001b[0;32m      3\u001b[0m \u001b[38;5;28;01mimport\u001b[39;00m \u001b[38;5;21;01mpyspark\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01msql\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01mtypes\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m \u001b[38;5;21;01mtp\u001b[39;00m\n\u001b[0;32m      4\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mpyspark\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01msql\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m functions \u001b[38;5;28;01mas\u001b[39;00m F\n",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m: No module named 'pyspark'"
+     ]
+    }
+   ],
+   "source": [
+    "# importing the required libraries\n",
+    "from pyspark.sql import SparkSession\n",
+    "import pyspark.sql.types as tp\n",
+    "from pyspark.sql import functions as F\n",
+    "\n",
+    "# libraries to make plots\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "894a9cb9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create spark session\n",
+    "spark = SparkSession.builder.getOrCreate()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "bee88197",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# reading the train data\n",
+    "train_data = spark.read.csv(\"data/train.csv\",inferSchema=True, header=True)\n",
+    "\n",
+    "# reading the test data\n",
+    "test_data  = spark.read.csv(\"data/test.csv\", inferSchema=True, header=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "0cc36a7c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "root\n",
+      " |-- User_ID: integer (nullable = true)\n",
+      " |-- Product_ID: string (nullable = true)\n",
+      " |-- Gender: string (nullable = true)\n",
+      " |-- Age: string (nullable = true)\n",
+      " |-- Occupation: integer (nullable = true)\n",
+      " |-- City_Category: string (nullable = true)\n",
+      " |-- Stay_In_Current_City_Years: string (nullable = true)\n",
+      " |-- Marital_Status: integer (nullable = true)\n",
+      " |-- Product_Category_1: integer (nullable = true)\n",
+      " |-- Product_Category_2: integer (nullable = true)\n",
+      " |-- Product_Category_3: integer (nullable = true)\n",
+      " |-- Purchase: integer (nullable = true)\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# data type of the columns\n",
+    "train_data.printSchema()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "68aebe5d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+\n",
+      "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|Purchase|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+\n",
+      "|1000001| P00069042|     F| 0-17|        10|            A|                         2|             0|                 3|              null|              null|    8370|\n",
+      "|1000001| P00248942|     F| 0-17|        10|            A|                         2|             0|                 1|                 6|                14|   15200|\n",
+      "|1000001| P00087842|     F| 0-17|        10|            A|                         2|             0|                12|              null|              null|    1422|\n",
+      "|1000001| P00085442|     F| 0-17|        10|            A|                         2|             0|                12|                14|              null|    1057|\n",
+      "|1000002| P00285442|     M|  55+|        16|            C|                        4+|             0|                 8|              null|              null|    7969|\n",
+      "|1000003| P00193542|     M|26-35|        15|            A|                         3|             0|                 1|                 2|              null|   15227|\n",
+      "|1000004| P00184942|     M|46-50|         7|            B|                         2|             1|                 1|                 8|                17|   19215|\n",
+      "|1000004| P00346142|     M|46-50|         7|            B|                         2|             1|                 1|                15|              null|   15854|\n",
+      "|1000004|  P0097242|     M|46-50|         7|            B|                         2|             1|                 1|                16|              null|   15686|\n",
+      "|1000005| P00274942|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    7871|\n",
+      "|1000005| P00251242|     M|26-35|        20|            A|                         1|             1|                 5|                11|              null|    5254|\n",
+      "|1000005| P00014542|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    3957|\n",
+      "|1000005| P00031342|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    6073|\n",
+      "|1000005| P00145042|     M|26-35|        20|            A|                         1|             1|                 1|                 2|                 5|   15665|\n",
+      "|1000006| P00231342|     F|51-55|         9|            A|                         1|             0|                 5|                 8|                14|    5378|\n",
+      "|1000006| P00190242|     F|51-55|         9|            A|                         1|             0|                 4|                 5|              null|    2079|\n",
+      "|1000006|  P0096642|     F|51-55|         9|            A|                         1|             0|                 2|                 3|                 4|   13055|\n",
+      "|1000006| P00058442|     F|51-55|         9|            A|                         1|             0|                 5|                14|              null|    8851|\n",
+      "|1000007| P00036842|     M|36-45|         1|            B|                         1|             1|                 1|                14|                16|   11788|\n",
+      "|1000008| P00249542|     M|26-35|        12|            C|                        4+|             1|                 1|                 5|                15|   19614|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "train_data.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "cb710cbe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+\n",
+      "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+\n",
+      "|1000004| P00128942|     M|46-50|         7|            B|                         2|             1|                 1|                11|              null|\n",
+      "|1000009| P00113442|     M|26-35|        17|            C|                         0|             0|                 3|                 5|              null|\n",
+      "|1000010| P00288442|     F|36-45|         1|            B|                        4+|             1|                 5|                14|              null|\n",
+      "|1000010| P00145342|     F|36-45|         1|            B|                        4+|             1|                 4|                 9|              null|\n",
+      "|1000011| P00053842|     F|26-35|         1|            C|                         1|             0|                 4|                 5|                12|\n",
+      "|1000013| P00350442|     M|46-50|         1|            C|                         3|             1|                 2|                 3|                15|\n",
+      "|1000013| P00155442|     M|46-50|         1|            C|                         3|             1|                 1|                11|                15|\n",
+      "|1000013|  P0094542|     M|46-50|         1|            C|                         3|             1|                 2|                 4|                 9|\n",
+      "|1000015| P00161842|     M|26-35|         7|            A|                         1|             0|                10|                13|                16|\n",
+      "|1000022| P00067942|     M|18-25|        15|            A|                        4+|             0|                 5|                14|              null|\n",
+      "|1000026| P00046742|     M|26-35|         7|            B|                         2|             1|                 1|                 2|                15|\n",
+      "|1000026| P00040042|     M|26-35|         7|            B|                         2|             1|                 5|              null|              null|\n",
+      "|1000026| P00196542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|                14|\n",
+      "|1000026| P00004542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|              null|\n",
+      "|1000028| P00159542|     F|26-35|         1|            C|                         2|             1|                10|                15|                16|\n",
+      "|1000029| P00111542|     M|36-45|         7|            C|                         1|             0|                 2|                17|              null|\n",
+      "|1000033| P00121042|     M|46-50|         3|            A|                         1|             1|                15|              null|              null|\n",
+      "|1000033| P00344442|     M|46-50|         3|            A|                         1|             1|                 5|                 8|                14|\n",
+      "|1000034| P00265242|     F|18-25|         0|            A|                         0|             0|                 5|                 8|              null|\n",
+      "|1000035|  P0096642|     M|46-50|         1|            C|                        4+|             1|                 2|                 3|                 4|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_data.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "b7a99fd4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import functions\n",
+    "from pyspark.sql.functions import countDistinct, avg\n",
+    "from pyspark.sql.types import IntegerType"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "e3b1f4ae",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "avgpurchase_amount = train_data.agg(avg(\"Purchase\").cast(IntegerType()))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5d15dc92",
+   "metadata": {},
+   "source": [
+    "# 1 Average Purchase Amounts"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "486fbe65",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>CAST(avg(Purchase) AS INT)</th></tr>\n",
+       "<tr><td>9326</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------------------+\n",
+       "|CAST(avg(Purchase) AS INT)|\n",
+       "+--------------------------+\n",
+       "|                      9326|\n",
+       "+--------------------------+"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "avgpurchase_amount "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "4dc23ef3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "User_ID 0\n",
+      "Product_ID 0\n",
+      "Gender 0\n",
+      "Age 0\n",
+      "Occupation 0\n",
+      "City_Category 0\n",
+      "Stay_In_Current_City_Years 0\n",
+      "Marital_Status 0\n",
+      "Product_Category_1 0\n",
+      "Product_Category_2 126127\n",
+      "Product_Category_3 282128\n",
+      "Purchase 0\n"
+     ]
+    }
+   ],
+   "source": [
+    "### null values in each column\n",
+    "for c in train_data.columns:\n",
+    "    # define the condition\n",
+    "    missing_values = F.isnull(c)\n",
+    "    \n",
+    "    # filter the data with condition and count the number of data points\n",
+    "    missing_values = train_data.filter(missing_values).count()\n",
+    "    \n",
+    "    # print the result\n",
+    "    print(c, missing_values)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "b1d68693",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "406568"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data.count()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "22067285",
+   "metadata": {},
+   "source": [
+    "Considering a lot of values in Product_Category_2 and Product_Category_3 is missing we will remove these values from the testing."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "d4a0a1a5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "User_ID 0\n",
+      "Product_ID 0\n",
+      "Gender 0\n",
+      "Age 0\n",
+      "Occupation 0\n",
+      "City_Category 0\n",
+      "Stay_In_Current_City_Years 0\n",
+      "Marital_Status 0\n",
+      "Product_Category_1 0\n",
+      "Product_Category_2 72344\n",
+      "Product_Category_3 162562\n"
+     ]
+    }
+   ],
+   "source": [
+    "### null values in each column\n",
+    "for c in test_data.columns:\n",
+    "    # define the condition\n",
+    "    missing_values = F.isnull(c)\n",
+    "    \n",
+    "    # filter the data with condition and count the number of data points\n",
+    "    missing_values = test_data.filter(missing_values).count()\n",
+    "    \n",
+    "    # print the result\n",
+    "    print(c, missing_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "95880916",
+   "metadata": {},
+   "source": [
+    "# 2. Counting and removing Null Values (delete Product_category_2 and Product_category_3 as they have lot of missing values)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "318e1997",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>User_ID</th><th>Product_ID</th><th>Gender</th><th>Age</th><th>Occupation</th><th>City_Category</th><th>Stay_In_Current_City_Years</th><th>Marital_Status</th><th>Product_Category_1</th><th>Purchase</th></tr>\n",
+       "<tr><td>1000001</td><td>P00069042</td><td>F</td><td>0-17</td><td>10</td><td>A</td><td>2</td><td>0</td><td>3</td><td>8370</td></tr>\n",
+       "<tr><td>1000001</td><td>P00248942</td><td>F</td><td>0-17</td><td>10</td><td>A</td><td>2</td><td>0</td><td>1</td><td>15200</td></tr>\n",
+       "<tr><td>1000001</td><td>P00087842</td><td>F</td><td>0-17</td><td>10</td><td>A</td><td>2</td><td>0</td><td>12</td><td>1422</td></tr>\n",
+       "<tr><td>1000001</td><td>P00085442</td><td>F</td><td>0-17</td><td>10</td><td>A</td><td>2</td><td>0</td><td>12</td><td>1057</td></tr>\n",
+       "<tr><td>1000002</td><td>P00285442</td><td>M</td><td>55+</td><td>16</td><td>C</td><td>4+</td><td>0</td><td>8</td><td>7969</td></tr>\n",
+       "<tr><td>1000003</td><td>P00193542</td><td>M</td><td>26-35</td><td>15</td><td>A</td><td>3</td><td>0</td><td>1</td><td>15227</td></tr>\n",
+       "<tr><td>1000004</td><td>P00184942</td><td>M</td><td>46-50</td><td>7</td><td>B</td><td>2</td><td>1</td><td>1</td><td>19215</td></tr>\n",
+       "<tr><td>1000004</td><td>P00346142</td><td>M</td><td>46-50</td><td>7</td><td>B</td><td>2</td><td>1</td><td>1</td><td>15854</td></tr>\n",
+       "<tr><td>1000004</td><td>P0097242</td><td>M</td><td>46-50</td><td>7</td><td>B</td><td>2</td><td>1</td><td>1</td><td>15686</td></tr>\n",
+       "<tr><td>1000005</td><td>P00274942</td><td>M</td><td>26-35</td><td>20</td><td>A</td><td>1</td><td>1</td><td>8</td><td>7871</td></tr>\n",
+       "<tr><td>1000005</td><td>P00251242</td><td>M</td><td>26-35</td><td>20</td><td>A</td><td>1</td><td>1</td><td>5</td><td>5254</td></tr>\n",
+       "<tr><td>1000005</td><td>P00014542</td><td>M</td><td>26-35</td><td>20</td><td>A</td><td>1</td><td>1</td><td>8</td><td>3957</td></tr>\n",
+       "<tr><td>1000005</td><td>P00031342</td><td>M</td><td>26-35</td><td>20</td><td>A</td><td>1</td><td>1</td><td>8</td><td>6073</td></tr>\n",
+       "<tr><td>1000005</td><td>P00145042</td><td>M</td><td>26-35</td><td>20</td><td>A</td><td>1</td><td>1</td><td>1</td><td>15665</td></tr>\n",
+       "<tr><td>1000006</td><td>P00231342</td><td>F</td><td>51-55</td><td>9</td><td>A</td><td>1</td><td>0</td><td>5</td><td>5378</td></tr>\n",
+       "<tr><td>1000006</td><td>P00190242</td><td>F</td><td>51-55</td><td>9</td><td>A</td><td>1</td><td>0</td><td>4</td><td>2079</td></tr>\n",
+       "<tr><td>1000006</td><td>P0096642</td><td>F</td><td>51-55</td><td>9</td><td>A</td><td>1</td><td>0</td><td>2</td><td>13055</td></tr>\n",
+       "<tr><td>1000006</td><td>P00058442</td><td>F</td><td>51-55</td><td>9</td><td>A</td><td>1</td><td>0</td><td>5</td><td>8851</td></tr>\n",
+       "<tr><td>1000007</td><td>P00036842</td><td>M</td><td>36-45</td><td>1</td><td>B</td><td>1</td><td>1</td><td>1</td><td>11788</td></tr>\n",
+       "<tr><td>1000008</td><td>P00249542</td><td>M</td><td>26-35</td><td>12</td><td>C</td><td>4+</td><td>1</td><td>1</td><td>19614</td></tr>\n",
+       "</table>\n",
+       "only showing top 20 rows\n"
+      ],
+      "text/plain": [
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+--------+\n",
+       "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Purchase|\n",
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+--------+\n",
+       "|1000001| P00069042|     F| 0-17|        10|            A|                         2|             0|                 3|    8370|\n",
+       "|1000001| P00248942|     F| 0-17|        10|            A|                         2|             0|                 1|   15200|\n",
+       "|1000001| P00087842|     F| 0-17|        10|            A|                         2|             0|                12|    1422|\n",
+       "|1000001| P00085442|     F| 0-17|        10|            A|                         2|             0|                12|    1057|\n",
+       "|1000002| P00285442|     M|  55+|        16|            C|                        4+|             0|                 8|    7969|\n",
+       "|1000003| P00193542|     M|26-35|        15|            A|                         3|             0|                 1|   15227|\n",
+       "|1000004| P00184942|     M|46-50|         7|            B|                         2|             1|                 1|   19215|\n",
+       "|1000004| P00346142|     M|46-50|         7|            B|                         2|             1|                 1|   15854|\n",
+       "|1000004|  P0097242|     M|46-50|         7|            B|                         2|             1|                 1|   15686|\n",
+       "|1000005| P00274942|     M|26-35|        20|            A|                         1|             1|                 8|    7871|\n",
+       "|1000005| P00251242|     M|26-35|        20|            A|                         1|             1|                 5|    5254|\n",
+       "|1000005| P00014542|     M|26-35|        20|            A|                         1|             1|                 8|    3957|\n",
+       "|1000005| P00031342|     M|26-35|        20|            A|                         1|             1|                 8|    6073|\n",
+       "|1000005| P00145042|     M|26-35|        20|            A|                         1|             1|                 1|   15665|\n",
+       "|1000006| P00231342|     F|51-55|         9|            A|                         1|             0|                 5|    5378|\n",
+       "|1000006| P00190242|     F|51-55|         9|            A|                         1|             0|                 4|    2079|\n",
+       "|1000006|  P0096642|     F|51-55|         9|            A|                         1|             0|                 2|   13055|\n",
+       "|1000006| P00058442|     F|51-55|         9|            A|                         1|             0|                 5|    8851|\n",
+       "|1000007| P00036842|     M|36-45|         1|            B|                         1|             1|                 1|   11788|\n",
+       "|1000008| P00249542|     M|26-35|        12|            C|                        4+|             1|                 1|   19614|\n",
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+--------+\n",
+       "only showing top 20 rows"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data.drop(\"Product_Category_2\",\"Product_Category_3\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "1af1b111",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>User_ID</th><th>Product_ID</th><th>Gender</th><th>Age</th><th>Occupation</th><th>City_Category</th><th>Stay_In_Current_City_Years</th><th>Marital_Status</th><th>Product_Category_1</th></tr>\n",
+       "<tr><td>1000004</td><td>P00128942</td><td>M</td><td>46-50</td><td>7</td><td>B</td><td>2</td><td>1</td><td>1</td></tr>\n",
+       "<tr><td>1000009</td><td>P00113442</td><td>M</td><td>26-35</td><td>17</td><td>C</td><td>0</td><td>0</td><td>3</td></tr>\n",
+       "<tr><td>1000010</td><td>P00288442</td><td>F</td><td>36-45</td><td>1</td><td>B</td><td>4+</td><td>1</td><td>5</td></tr>\n",
+       "<tr><td>1000010</td><td>P00145342</td><td>F</td><td>36-45</td><td>1</td><td>B</td><td>4+</td><td>1</td><td>4</td></tr>\n",
+       "<tr><td>1000011</td><td>P00053842</td><td>F</td><td>26-35</td><td>1</td><td>C</td><td>1</td><td>0</td><td>4</td></tr>\n",
+       "<tr><td>1000013</td><td>P00350442</td><td>M</td><td>46-50</td><td>1</td><td>C</td><td>3</td><td>1</td><td>2</td></tr>\n",
+       "<tr><td>1000013</td><td>P00155442</td><td>M</td><td>46-50</td><td>1</td><td>C</td><td>3</td><td>1</td><td>1</td></tr>\n",
+       "<tr><td>1000013</td><td>P0094542</td><td>M</td><td>46-50</td><td>1</td><td>C</td><td>3</td><td>1</td><td>2</td></tr>\n",
+       "<tr><td>1000015</td><td>P00161842</td><td>M</td><td>26-35</td><td>7</td><td>A</td><td>1</td><td>0</td><td>10</td></tr>\n",
+       "<tr><td>1000022</td><td>P00067942</td><td>M</td><td>18-25</td><td>15</td><td>A</td><td>4+</td><td>0</td><td>5</td></tr>\n",
+       "<tr><td>1000026</td><td>P00046742</td><td>M</td><td>26-35</td><td>7</td><td>B</td><td>2</td><td>1</td><td>1</td></tr>\n",
+       "<tr><td>1000026</td><td>P00040042</td><td>M</td><td>26-35</td><td>7</td><td>B</td><td>2</td><td>1</td><td>5</td></tr>\n",
+       "<tr><td>1000026</td><td>P00196542</td><td>M</td><td>26-35</td><td>7</td><td>B</td><td>2</td><td>1</td><td>5</td></tr>\n",
+       "<tr><td>1000026</td><td>P00004542</td><td>M</td><td>26-35</td><td>7</td><td>B</td><td>2</td><td>1</td><td>5</td></tr>\n",
+       "<tr><td>1000028</td><td>P00159542</td><td>F</td><td>26-35</td><td>1</td><td>C</td><td>2</td><td>1</td><td>10</td></tr>\n",
+       "<tr><td>1000029</td><td>P00111542</td><td>M</td><td>36-45</td><td>7</td><td>C</td><td>1</td><td>0</td><td>2</td></tr>\n",
+       "<tr><td>1000033</td><td>P00121042</td><td>M</td><td>46-50</td><td>3</td><td>A</td><td>1</td><td>1</td><td>15</td></tr>\n",
+       "<tr><td>1000033</td><td>P00344442</td><td>M</td><td>46-50</td><td>3</td><td>A</td><td>1</td><td>1</td><td>5</td></tr>\n",
+       "<tr><td>1000034</td><td>P00265242</td><td>F</td><td>18-25</td><td>0</td><td>A</td><td>0</td><td>0</td><td>5</td></tr>\n",
+       "<tr><td>1000035</td><td>P0096642</td><td>M</td><td>46-50</td><td>1</td><td>C</td><td>4+</td><td>1</td><td>2</td></tr>\n",
+       "</table>\n",
+       "only showing top 20 rows\n"
+      ],
+      "text/plain": [
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+\n",
+       "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|\n",
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+\n",
+       "|1000004| P00128942|     M|46-50|         7|            B|                         2|             1|                 1|\n",
+       "|1000009| P00113442|     M|26-35|        17|            C|                         0|             0|                 3|\n",
+       "|1000010| P00288442|     F|36-45|         1|            B|                        4+|             1|                 5|\n",
+       "|1000010| P00145342|     F|36-45|         1|            B|                        4+|             1|                 4|\n",
+       "|1000011| P00053842|     F|26-35|         1|            C|                         1|             0|                 4|\n",
+       "|1000013| P00350442|     M|46-50|         1|            C|                         3|             1|                 2|\n",
+       "|1000013| P00155442|     M|46-50|         1|            C|                         3|             1|                 1|\n",
+       "|1000013|  P0094542|     M|46-50|         1|            C|                         3|             1|                 2|\n",
+       "|1000015| P00161842|     M|26-35|         7|            A|                         1|             0|                10|\n",
+       "|1000022| P00067942|     M|18-25|        15|            A|                        4+|             0|                 5|\n",
+       "|1000026| P00046742|     M|26-35|         7|            B|                         2|             1|                 1|\n",
+       "|1000026| P00040042|     M|26-35|         7|            B|                         2|             1|                 5|\n",
+       "|1000026| P00196542|     M|26-35|         7|            B|                         2|             1|                 5|\n",
+       "|1000026| P00004542|     M|26-35|         7|            B|                         2|             1|                 5|\n",
+       "|1000028| P00159542|     F|26-35|         1|            C|                         2|             1|                10|\n",
+       "|1000029| P00111542|     M|36-45|         7|            C|                         1|             0|                 2|\n",
+       "|1000033| P00121042|     M|46-50|         3|            A|                         1|             1|                15|\n",
+       "|1000033| P00344442|     M|46-50|         3|            A|                         1|             1|                 5|\n",
+       "|1000034| P00265242|     F|18-25|         0|            A|                         0|             0|                 5|\n",
+       "|1000035|  P0096642|     M|46-50|         1|            C|                        4+|             1|                 2|\n",
+       "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+\n",
+       "only showing top 20 rows"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "test_data.drop(\"Product_Category_2\",\"Product_Category_3\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "31c960ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>User_ID</th><th>Product_ID</th><th>Gender</th><th>Age</th><th>Occupation</th><th>City_Category</th><th>Stay_In_Current_City_Years</th><th>Marital_Status</th><th>Product_Category_1</th><th>Product_Category_2</th><th>Product_Category_3</th><th>Purchase</th></tr>\n",
+       "<tr><td>5891</td><td>3579</td><td>2</td><td>7</td><td>21</td><td>3</td><td>5</td><td>2</td><td>18</td><td>17</td><td>15</td><td>17427</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-------+----------+------+---+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+\n",
+       "|User_ID|Product_ID|Gender|Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|Purchase|\n",
+       "+-------+----------+------+---+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+\n",
+       "|   5891|      3579|     2|  7|        21|            3|                         5|             2|                18|                17|                15|   17427|\n",
+       "+-------+----------+------+---+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# distinct values in each column\n",
+    "train_data.agg(*(F.countDistinct(F.col(c)).alias(c) for c in train_data.columns))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "e49b6dc8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "cat_value_Gender = train_data.groupBy(\"Gender\").agg(F.count(\"Gender\"),\n",
+    "                                                            (F.count(\"Gender\")/train_data.count())*100,F.avg(\"Purchase\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "1da30c9b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Gender</th><th>count(Gender)</th><th>((count(Gender) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>F</td><td>100129</td><td>24.627860530095827</td><td>8806.62969768998</td></tr>\n",
+       "<tr><td>M</td><td>306439</td><td>75.37213946990417</td><td>9495.899781033093</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+------+-------------+--------------------------------+-----------------+\n",
+       "|Gender|count(Gender)|((count(Gender) / 406568) * 100)|    avg(Purchase)|\n",
+       "+------+-------------+--------------------------------+-----------------+\n",
+       "|     F|       100129|              24.627860530095827| 8806.62969768998|\n",
+       "|     M|       306439|               75.37213946990417|9495.899781033093|\n",
+       "+------+-------------+--------------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Gender"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "15fa0aa2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_Gender_test = test_data.groupBy(\"Gender\").agg(F.count(\"Gender\"),\n",
+    "                                                            (F.count(\"Gender\")/test_data.count())*100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "e6ee1161",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Gender</th><th>count(Gender)</th><th>((count(Gender) / 233599) * 100)</th></tr>\n",
+       "<tr><td>F</td><td>57827</td><td>24.754814875063676</td></tr>\n",
+       "<tr><td>M</td><td>175772</td><td>75.24518512493631</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+------+-------------+--------------------------------+\n",
+       "|Gender|count(Gender)|((count(Gender) / 233599) * 100)|\n",
+       "+------+-------------+--------------------------------+\n",
+       "|     F|        57827|              24.754814875063676|\n",
+       "|     M|       175772|               75.24518512493631|\n",
+       "+------+-------------+--------------------------------+"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Gender_test"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "913c9938",
+   "metadata": {},
+   "source": [
+    "# 4 & 5.a Gender Data has more males in the dataset than females. Both test and Train data has roughly 75% males and 25% females . males tend to purchase more in value compared to female per training set but not by a big difference"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "9e3442d3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def cat_value (train_data,x):\n",
+    "\n",
+    "    catvalue = train_data.groupBy(x).agg(F.count(x),\n",
+    "                                                         (F.count(x)/train_data.count())*100)\n",
+    "    \n",
+    "  return catvalue"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "cb41f4d7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# convert tot udf function\n",
+    "cat_value_udf = F.udf(f = cat_value, returnType= tp.IntegerType())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "af22fea1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_udf(train_data, Age)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "27e4bd98",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_AGE = train_data.groupBy(\"Age\").agg(F.count(\"Age\"),\n",
+    "                                                            (F.count(\"Age\")/train_data.count())*100,F.avg(\"Purchase\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "972c23bb",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Age</th><th>count(Age)</th><th>((count(Age) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>18-25</td><td>74213</td><td>18.25352708526003</td><td>9222.336127093637</td></tr>\n",
+       "<tr><td>26-35</td><td>161774</td><td>39.79014580586765</td><td>9299.44379195668</td></tr>\n",
+       "<tr><td>0-17</td><td>11327</td><td>2.786003817319612</td><td>9043.369647744328</td></tr>\n",
+       "<tr><td>46-50</td><td>33650</td><td>8.276598256626198</td><td>9284.202763744428</td></tr>\n",
+       "<tr><td>51-55</td><td>28523</td><td>7.015554593573523</td><td>9626.475651228833</td></tr>\n",
+       "<tr><td>36-45</td><td>81133</td><td>19.955579386474096</td><td>9401.09231755266</td></tr>\n",
+       "<tr><td>55+</td><td>15948</td><td>3.9225910548788887</td><td>9451.037622272384</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-----+----------+-----------------------------+-----------------+\n",
+       "|  Age|count(Age)|((count(Age) / 406568) * 100)|    avg(Purchase)|\n",
+       "+-----+----------+-----------------------------+-----------------+\n",
+       "|18-25|     74213|            18.25352708526003|9222.336127093637|\n",
+       "|26-35|    161774|            39.79014580586765| 9299.44379195668|\n",
+       "| 0-17|     11327|            2.786003817319612|9043.369647744328|\n",
+       "|46-50|     33650|            8.276598256626198|9284.202763744428|\n",
+       "|51-55|     28523|            7.015554593573523|9626.475651228833|\n",
+       "|36-45|     81133|           19.955579386474096| 9401.09231755266|\n",
+       "|  55+|     15948|           3.9225910548788887|9451.037622272384|\n",
+       "+-----+----------+-----------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_AGE"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "0fbf6175",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Age</th><th>count(Age)</th><th>((count(Age) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>26-35</td><td>161774</td><td>39.79014580586765</td><td>9299.44379195668</td></tr>\n",
+       "<tr><td>36-45</td><td>81133</td><td>19.955579386474096</td><td>9401.09231755266</td></tr>\n",
+       "<tr><td>18-25</td><td>74213</td><td>18.25352708526003</td><td>9222.336127093637</td></tr>\n",
+       "<tr><td>46-50</td><td>33650</td><td>8.276598256626198</td><td>9284.202763744428</td></tr>\n",
+       "<tr><td>51-55</td><td>28523</td><td>7.015554593573523</td><td>9626.475651228833</td></tr>\n",
+       "<tr><td>55+</td><td>15948</td><td>3.9225910548788887</td><td>9451.037622272384</td></tr>\n",
+       "<tr><td>0-17</td><td>11327</td><td>2.786003817319612</td><td>9043.369647744328</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-----+----------+-----------------------------+-----------------+\n",
+       "|  Age|count(Age)|((count(Age) / 406568) * 100)|    avg(Purchase)|\n",
+       "+-----+----------+-----------------------------+-----------------+\n",
+       "|26-35|    161774|            39.79014580586765| 9299.44379195668|\n",
+       "|36-45|     81133|           19.955579386474096| 9401.09231755266|\n",
+       "|18-25|     74213|            18.25352708526003|9222.336127093637|\n",
+       "|46-50|     33650|            8.276598256626198|9284.202763744428|\n",
+       "|51-55|     28523|            7.015554593573523|9626.475651228833|\n",
+       "|  55+|     15948|           3.9225910548788887|9451.037622272384|\n",
+       "| 0-17|     11327|            2.786003817319612|9043.369647744328|\n",
+       "+-----+----------+-----------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_AGE.orderBy('((count(Age) / 406568) * 100)', ascending=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "09b726e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_AGE_test = test_data.groupBy(\"Age\").agg(F.count(\"Age\"),\n",
+    "                                                            (F.count(\"Age\")/test_data.count())*100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "07e8f7da",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Age</th><th>count(Age)</th><th>((count(Age) / 233599) * 100)</th></tr>\n",
+       "<tr><td>18-25</td><td>42293</td><td>18.104957641085793</td></tr>\n",
+       "<tr><td>26-35</td><td>93428</td><td>39.995034225317745</td></tr>\n",
+       "<tr><td>0-17</td><td>6232</td><td>2.6678196396388683</td></tr>\n",
+       "<tr><td>46-50</td><td>19577</td><td>8.380600944353358</td></tr>\n",
+       "<tr><td>51-55</td><td>16283</td><td>6.9704921682027745</td></tr>\n",
+       "<tr><td>36-45</td><td>46711</td><td>19.996232860585874</td></tr>\n",
+       "<tr><td>55+</td><td>9075</td><td>3.884862520815586</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-----+----------+-----------------------------+\n",
+       "|  Age|count(Age)|((count(Age) / 233599) * 100)|\n",
+       "+-----+----------+-----------------------------+\n",
+       "|18-25|     42293|           18.104957641085793|\n",
+       "|26-35|     93428|           39.995034225317745|\n",
+       "| 0-17|      6232|           2.6678196396388683|\n",
+       "|46-50|     19577|            8.380600944353358|\n",
+       "|51-55|     16283|           6.9704921682027745|\n",
+       "|36-45|     46711|           19.996232860585874|\n",
+       "|  55+|      9075|            3.884862520815586|\n",
+       "+-----+----------+-----------------------------+"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_AGE_test"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "1e3238bb",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Age</th><th>count(Age)</th><th>((count(Age) / 233599) * 100)</th></tr>\n",
+       "<tr><td>26-35</td><td>93428</td><td>39.995034225317745</td></tr>\n",
+       "<tr><td>36-45</td><td>46711</td><td>19.996232860585874</td></tr>\n",
+       "<tr><td>18-25</td><td>42293</td><td>18.104957641085793</td></tr>\n",
+       "<tr><td>46-50</td><td>19577</td><td>8.380600944353358</td></tr>\n",
+       "<tr><td>51-55</td><td>16283</td><td>6.9704921682027745</td></tr>\n",
+       "<tr><td>55+</td><td>9075</td><td>3.884862520815586</td></tr>\n",
+       "<tr><td>0-17</td><td>6232</td><td>2.6678196396388683</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-----+----------+-----------------------------+\n",
+       "|  Age|count(Age)|((count(Age) / 233599) * 100)|\n",
+       "+-----+----------+-----------------------------+\n",
+       "|26-35|     93428|           39.995034225317745|\n",
+       "|36-45|     46711|           19.996232860585874|\n",
+       "|18-25|     42293|           18.104957641085793|\n",
+       "|46-50|     19577|            8.380600944353358|\n",
+       "|51-55|     16283|           6.9704921682027745|\n",
+       "|  55+|      9075|            3.884862520815586|\n",
+       "| 0-17|      6232|           2.6678196396388683|\n",
+       "+-----+----------+-----------------------------+"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_AGE_test.orderBy('((count(Age) / 233599) * 100)', ascending=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1246ddcf",
+   "metadata": {},
+   "source": [
+    "# 4&5 b Majority of datapoints is between Age 18-55 in both train and Test data. Most of spending purchases averages around 9-10K range per training date"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "162f90c6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_City_Category = train_data.groupBy(\"City_Category\").agg(F.count(\"City_Category\"),\n",
+    "                                                            (F.count(\"City_Category\")/train_data.count())*100,F.avg(\"Purchase\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "f0ec5c50",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>City_Category</th><th>count(City_Category)</th><th>((count(City_Category) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>B</td><td>171296</td><td>42.13218944924343</td><td>9188.515400242855</td></tr>\n",
+       "<tr><td>C</td><td>125824</td><td>30.94783652427146</td><td>9846.049632820448</td></tr>\n",
+       "<tr><td>A</td><td>109448</td><td>26.919974026485114</td><td>8943.861696878883</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-------------+--------------------+---------------------------------------+-----------------+\n",
+       "|City_Category|count(City_Category)|((count(City_Category) / 406568) * 100)|    avg(Purchase)|\n",
+       "+-------------+--------------------+---------------------------------------+-----------------+\n",
+       "|            B|              171296|                      42.13218944924343|9188.515400242855|\n",
+       "|            C|              125824|                      30.94783652427146|9846.049632820448|\n",
+       "|            A|              109448|                     26.919974026485114|8943.861696878883|\n",
+       "+-------------+--------------------+---------------------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_City_Category"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "d181fe43",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_City_Category_test = test_data.groupBy(\"City_Category\").agg(F.count(\"City_Category\"),\n",
+    "                                                            (F.count(\"City_Category\")/test_data.count())*100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "ffeb2385",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>City_Category</th><th>count(City_Category)</th><th>((count(City_Category) / 233599) * 100)</th></tr>\n",
+       "<tr><td>B</td><td>98566</td><td>42.194529942337084</td></tr>\n",
+       "<tr><td>C</td><td>72509</td><td>31.03994452031045</td></tr>\n",
+       "<tr><td>A</td><td>62524</td><td>26.76552553735247</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+-------------+--------------------+---------------------------------------+\n",
+       "|City_Category|count(City_Category)|((count(City_Category) / 233599) * 100)|\n",
+       "+-------------+--------------------+---------------------------------------+\n",
+       "|            B|               98566|                     42.194529942337084|\n",
+       "|            C|               72509|                      31.03994452031045|\n",
+       "|            A|               62524|                      26.76552553735247|\n",
+       "+-------------+--------------------+---------------------------------------+"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_City_Category_test"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f14f96f6",
+   "metadata": {},
+   "source": [
+    "# 4&5.c Both test and Train data generally uniformly distributed datapoints for City_Category with slightly larger value for City_Category_B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "895e9e8a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years = train_data.groupBy(\"Stay_In_Current_City_Years\").agg(F.count(\"Stay_In_Current_City_Years\"),\n",
+    "                                                            (F.count(\"Stay_In_Current_City_Years\")/train_data.count())*100,F.avg(\"Purchase\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "5cfcdcce",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Stay_In_Current_City_Years</th><th>count(Stay_In_Current_City_Years)</th><th>((count(Stay_In_Current_City_Years) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>3</td><td>70595</td><td>17.36363904685071</td><td>9337.174488278206</td></tr>\n",
+       "<tr><td>0</td><td>55152</td><td>13.565258456150017</td><td>9234.879623585726</td></tr>\n",
+       "<tr><td>4+</td><td>62906</td><td>15.472442494244506</td><td>9339.196229294503</td></tr>\n",
+       "<tr><td>1</td><td>142972</td><td>35.165581157395565</td><td>9313.550499398483</td></tr>\n",
+       "<tr><td>2</td><td>74943</td><td>18.4330788453592</td><td>9396.003949668415</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+\n",
+       "|Stay_In_Current_City_Years|count(Stay_In_Current_City_Years)|((count(Stay_In_Current_City_Years) / 406568) * 100)|    avg(Purchase)|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+\n",
+       "|                         3|                            70595|                                   17.36363904685071|9337.174488278206|\n",
+       "|                         0|                            55152|                                  13.565258456150017|9234.879623585726|\n",
+       "|                        4+|                            62906|                                  15.472442494244506|9339.196229294503|\n",
+       "|                         1|                           142972|                                  35.165581157395565|9313.550499398483|\n",
+       "|                         2|                            74943|                                    18.4330788453592|9396.003949668415|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "97752e0e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Stay_In_Current_City_Years</th><th>count(Stay_In_Current_City_Years)</th><th>((count(Stay_In_Current_City_Years) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>1</td><td>142972</td><td>35.165581157395565</td><td>9313.550499398483</td></tr>\n",
+       "<tr><td>2</td><td>74943</td><td>18.4330788453592</td><td>9396.003949668415</td></tr>\n",
+       "<tr><td>3</td><td>70595</td><td>17.36363904685071</td><td>9337.174488278206</td></tr>\n",
+       "<tr><td>4+</td><td>62906</td><td>15.472442494244506</td><td>9339.196229294503</td></tr>\n",
+       "<tr><td>0</td><td>55152</td><td>13.565258456150017</td><td>9234.879623585726</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+\n",
+       "|Stay_In_Current_City_Years|count(Stay_In_Current_City_Years)|((count(Stay_In_Current_City_Years) / 406568) * 100)|    avg(Purchase)|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+\n",
+       "|                         1|                           142972|                                  35.165581157395565|9313.550499398483|\n",
+       "|                         2|                            74943|                                    18.4330788453592|9396.003949668415|\n",
+       "|                         3|                            70595|                                   17.36363904685071|9337.174488278206|\n",
+       "|                        4+|                            62906|                                  15.472442494244506|9339.196229294503|\n",
+       "|                         0|                            55152|                                  13.565258456150017|9234.879623585726|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years.orderBy('((count(Stay_In_Current_City_Years) / 406568) * 100)', ascending=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "1e891d30",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years_test = test_data.groupBy(\"Stay_In_Current_City_Years\").agg(F.count(\"Stay_In_Current_City_Years\"),\n",
+    "                                                            (F.count(\"Stay_In_Current_City_Years\")/test_data.count())*100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "50659980",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Stay_In_Current_City_Years</th><th>count(Stay_In_Current_City_Years)</th><th>((count(Stay_In_Current_City_Years) / 233599) * 100)</th></tr>\n",
+       "<tr><td>3</td><td>40143</td><td>17.184576988771354</td></tr>\n",
+       "<tr><td>0</td><td>31318</td><td>13.406735474038845</td></tr>\n",
+       "<tr><td>4+</td><td>35945</td><td>15.387480254624379</td></tr>\n",
+       "<tr><td>1</td><td>82604</td><td>35.36145274594497</td></tr>\n",
+       "<tr><td>2</td><td>43589</td><td>18.659754536620447</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------------------+---------------------------------+----------------------------------------------------+\n",
+       "|Stay_In_Current_City_Years|count(Stay_In_Current_City_Years)|((count(Stay_In_Current_City_Years) / 233599) * 100)|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+\n",
+       "|                         3|                            40143|                                  17.184576988771354|\n",
+       "|                         0|                            31318|                                  13.406735474038845|\n",
+       "|                        4+|                            35945|                                  15.387480254624379|\n",
+       "|                         1|                            82604|                                   35.36145274594497|\n",
+       "|                         2|                            43589|                                  18.659754536620447|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years_test"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "4333d3d8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Stay_In_Current_City_Years</th><th>count(Stay_In_Current_City_Years)</th><th>((count(Stay_In_Current_City_Years) / 233599) * 100)</th></tr>\n",
+       "<tr><td>1</td><td>82604</td><td>35.36145274594497</td></tr>\n",
+       "<tr><td>2</td><td>43589</td><td>18.659754536620447</td></tr>\n",
+       "<tr><td>3</td><td>40143</td><td>17.184576988771354</td></tr>\n",
+       "<tr><td>4+</td><td>35945</td><td>15.387480254624379</td></tr>\n",
+       "<tr><td>0</td><td>31318</td><td>13.406735474038845</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------------------+---------------------------------+----------------------------------------------------+\n",
+       "|Stay_In_Current_City_Years|count(Stay_In_Current_City_Years)|((count(Stay_In_Current_City_Years) / 233599) * 100)|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+\n",
+       "|                         1|                            82604|                                   35.36145274594497|\n",
+       "|                         2|                            43589|                                  18.659754536620447|\n",
+       "|                         3|                            40143|                                  17.184576988771354|\n",
+       "|                        4+|                            35945|                                  15.387480254624379|\n",
+       "|                         0|                            31318|                                  13.406735474038845|\n",
+       "+--------------------------+---------------------------------+----------------------------------------------------+"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Stay_In_Current_City_Years_test.orderBy('((count(Stay_In_Current_City_Years) / 233599) * 100)', ascending=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e3069c6b",
+   "metadata": {},
+   "source": [
+    "# 4 & 5.d People who are staying in year 1-2 is 35% percent for both test and Train Data where as all the other population is 13-18% of the data and all purchases are around the same range in train data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "80d743e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_Marital_Status = train_data.groupBy(\"Marital_Status\").agg(F.count(\"Marital_Status\"),\n",
+    "                                                            (F.count(\"Marital_Status\")/train_data.count())*100,F.avg(\"Purchase\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "d5f93acd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Marital_Status</th><th>count(Marital_Status)</th><th>((count(Marital_Status) / 406568) * 100)</th><th>avg(Purchase)</th></tr>\n",
+       "<tr><td>1</td><td>166777</td><td>41.02069026583499</td><td>9331.293679584116</td></tr>\n",
+       "<tr><td>0</td><td>239791</td><td>58.97930973416501</td><td>9322.567952925672</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------+---------------------+----------------------------------------+-----------------+\n",
+       "|Marital_Status|count(Marital_Status)|((count(Marital_Status) / 406568) * 100)|    avg(Purchase)|\n",
+       "+--------------+---------------------+----------------------------------------+-----------------+\n",
+       "|             1|               166777|                       41.02069026583499|9331.293679584116|\n",
+       "|             0|               239791|                       58.97930973416501|9322.567952925672|\n",
+       "+--------------+---------------------+----------------------------------------+-----------------+"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Marital_Status"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "75f97549",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cat_value_Marital_Status_test = test_data.groupBy(\"Marital_Status\").agg(F.count(\"Marital_Status\"),\n",
+    "                                                            (F.count(\"Marital_Status\")/test_data.count())*100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "de72e1c8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table border='1'>\n",
+       "<tr><th>Marital_Status</th><th>count(Marital_Status)</th><th>((count(Marital_Status) / 233599) * 100)</th></tr>\n",
+       "<tr><td>1</td><td>95792</td><td>41.007024858839294</td></tr>\n",
+       "<tr><td>0</td><td>137807</td><td>58.992975141160706</td></tr>\n",
+       "</table>\n"
+      ],
+      "text/plain": [
+       "+--------------+---------------------+----------------------------------------+\n",
+       "|Marital_Status|count(Marital_Status)|((count(Marital_Status) / 233599) * 100)|\n",
+       "+--------------+---------------------+----------------------------------------+\n",
+       "|             1|                95792|                      41.007024858839294|\n",
+       "|             0|               137807|                      58.992975141160706|\n",
+       "+--------------+---------------------+----------------------------------------+"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cat_value_Marital_Status_test"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "411a2c54",
+   "metadata": {},
+   "source": [
+    "# 4&5 E the Data is evenly distributed among married and non-married folks  with non married being slightly higher at 58% compared to 42% of married"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "54f1cde7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# importing pre-processing libraries\n",
+    "from pyspark.ml.feature import StringIndexer\n",
+    "from pyspark.ml.feature import OneHotEncoderEstimator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "eb2bee35",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# label encode Age\n",
+    "SI_Age = StringIndexer(inputCol= \"Age\", outputCol= \"Age_le\" , handleInvalid=\"skip\")\n",
+    "\n",
+    "# label encode Gender\n",
+    "SI_Gender = StringIndexer(inputCol= \"Gender\", outputCol= \"Gender_le\", handleInvalid= \"skip\")\n",
+    "\n",
+    "# label encode Stay_In_Current_City_Years\n",
+    "SI_Stay_In_Current_City_Years      = StringIndexer(inputCol= \"Stay_In_Current_City_Years\",      outputCol= \"Stay_In_Current_City_Years_le\", handleInvalid= \"skip\")\n",
+    "\n",
+    "# label encode City_Category\n",
+    "SI_City_Category = StringIndexer(inputCol= \"City_Category\", outputCol= \"City_Category_le\", handleInvalid=\"skip\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "dc0b4f1f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# label encode object Age\n",
+    "SI_Age_obj = SI_Age.fit(train_data)\n",
+    "\n",
+    "# label encode object Gender\n",
+    "SI_Gender_Obj = SI_Gender.fit(train_data)\n",
+    "\n",
+    "# label encode object stay_in_current_years\n",
+    "SI_Stay_In_Current_City_Years_Obj = SI_Stay_In_Current_City_Years.fit(train_data)\n",
+    "\n",
+    "# label encode object city_category\n",
+    "SI_City_Category_Obj = SI_City_Category.fit(train_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "73b42285",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# label encode country\n",
+    "train_data_encoded = SI_Age_obj.transform(train_data)\n",
+    "\n",
+    "# label encode browser\n",
+    "train_data_encoded = SI_Gender_Obj.transform(train_data_encoded)\n",
+    "\n",
+    "# label encode os\n",
+    "train_data_encoded = SI_Stay_In_Current_City_Years_Obj.transform(train_data_encoded)\n",
+    "\n",
+    "# label encode traffic\n",
+    "train_data_encoded = SI_City_Category_Obj.transform(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "da59e194",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['User_ID',\n",
+       " 'Product_ID',\n",
+       " 'Gender',\n",
+       " 'Age',\n",
+       " 'Occupation',\n",
+       " 'City_Category',\n",
+       " 'Stay_In_Current_City_Years',\n",
+       " 'Marital_Status',\n",
+       " 'Product_Category_1',\n",
+       " 'Product_Category_2',\n",
+       " 'Product_Category_3',\n",
+       " 'Purchase',\n",
+       " 'Age_le',\n",
+       " 'Gender_le',\n",
+       " 'Stay_In_Current_City_Years_le',\n",
+       " 'City_Category_le']"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data_encoded.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "0d4485b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+------+---------+-----------------------------+----------------+\n",
+      "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|Purchase|Age_le|Gender_le|Stay_In_Current_City_Years_le|City_Category_le|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+------+---------+-----------------------------+----------------+\n",
+      "|1000001| P00069042|     F| 0-17|        10|            A|                         2|             0|                 3|              null|              null|    8370|   6.0|      1.0|                          1.0|             2.0|\n",
+      "|1000001| P00248942|     F| 0-17|        10|            A|                         2|             0|                 1|                 6|                14|   15200|   6.0|      1.0|                          1.0|             2.0|\n",
+      "|1000001| P00087842|     F| 0-17|        10|            A|                         2|             0|                12|              null|              null|    1422|   6.0|      1.0|                          1.0|             2.0|\n",
+      "|1000001| P00085442|     F| 0-17|        10|            A|                         2|             0|                12|                14|              null|    1057|   6.0|      1.0|                          1.0|             2.0|\n",
+      "|1000002| P00285442|     M|  55+|        16|            C|                        4+|             0|                 8|              null|              null|    7969|   5.0|      0.0|                          3.0|             1.0|\n",
+      "|1000003| P00193542|     M|26-35|        15|            A|                         3|             0|                 1|                 2|              null|   15227|   0.0|      0.0|                          2.0|             2.0|\n",
+      "|1000004| P00184942|     M|46-50|         7|            B|                         2|             1|                 1|                 8|                17|   19215|   3.0|      0.0|                          1.0|             0.0|\n",
+      "|1000004| P00346142|     M|46-50|         7|            B|                         2|             1|                 1|                15|              null|   15854|   3.0|      0.0|                          1.0|             0.0|\n",
+      "|1000004|  P0097242|     M|46-50|         7|            B|                         2|             1|                 1|                16|              null|   15686|   3.0|      0.0|                          1.0|             0.0|\n",
+      "|1000005| P00274942|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    7871|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000005| P00251242|     M|26-35|        20|            A|                         1|             1|                 5|                11|              null|    5254|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000005| P00014542|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    3957|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000005| P00031342|     M|26-35|        20|            A|                         1|             1|                 8|              null|              null|    6073|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000005| P00145042|     M|26-35|        20|            A|                         1|             1|                 1|                 2|                 5|   15665|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000006| P00231342|     F|51-55|         9|            A|                         1|             0|                 5|                 8|                14|    5378|   4.0|      1.0|                          0.0|             2.0|\n",
+      "|1000006| P00190242|     F|51-55|         9|            A|                         1|             0|                 4|                 5|              null|    2079|   4.0|      1.0|                          0.0|             2.0|\n",
+      "|1000006|  P0096642|     F|51-55|         9|            A|                         1|             0|                 2|                 3|                 4|   13055|   4.0|      1.0|                          0.0|             2.0|\n",
+      "|1000006| P00058442|     F|51-55|         9|            A|                         1|             0|                 5|                14|              null|    8851|   4.0|      1.0|                          0.0|             2.0|\n",
+      "|1000007| P00036842|     M|36-45|         1|            B|                         1|             1|                 1|                14|                16|   11788|   1.0|      0.0|                          0.0|             0.0|\n",
+      "|1000008| P00249542|     M|26-35|        12|            C|                        4+|             1|                 1|                 5|                15|   19614|   0.0|      0.0|                          3.0|             1.0|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+--------+------+---------+-----------------------------+----------------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "train_data_encoded.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "id": "a4582f45",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# label encode Age\n",
+    "# test data\n",
+    "test_data_encoded = SI_Age_obj.transform(test_data)\n",
+    "\n",
+    "# label encode Gender\n",
+    "\n",
+    "# test data\n",
+    "test_data_encoded = SI_Gender_Obj.transform(test_data_encoded)\n",
+    "\n",
+    "# label encode current_city_Years\n",
+    "# test data\n",
+    "test_data_encoded = SI_Stay_In_Current_City_Years_Obj.transform(test_data_encoded)\n",
+    "\n",
+    "# label encode city_category\n",
+    "test_data_encoded = SI_City_Category_Obj.transform(test_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "9ab5a796",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+\n",
+      "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|Age_le|Gender_le|Stay_In_Current_City_Years_le|City_Category_le|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+\n",
+      "|1000004| P00128942|     M|46-50|         7|            B|                         2|             1|                 1|                11|              null|   3.0|      0.0|                          1.0|             0.0|\n",
+      "|1000009| P00113442|     M|26-35|        17|            C|                         0|             0|                 3|                 5|              null|   0.0|      0.0|                          4.0|             1.0|\n",
+      "|1000010| P00288442|     F|36-45|         1|            B|                        4+|             1|                 5|                14|              null|   1.0|      1.0|                          3.0|             0.0|\n",
+      "|1000010| P00145342|     F|36-45|         1|            B|                        4+|             1|                 4|                 9|              null|   1.0|      1.0|                          3.0|             0.0|\n",
+      "|1000011| P00053842|     F|26-35|         1|            C|                         1|             0|                 4|                 5|                12|   0.0|      1.0|                          0.0|             1.0|\n",
+      "|1000013| P00350442|     M|46-50|         1|            C|                         3|             1|                 2|                 3|                15|   3.0|      0.0|                          2.0|             1.0|\n",
+      "|1000013| P00155442|     M|46-50|         1|            C|                         3|             1|                 1|                11|                15|   3.0|      0.0|                          2.0|             1.0|\n",
+      "|1000013|  P0094542|     M|46-50|         1|            C|                         3|             1|                 2|                 4|                 9|   3.0|      0.0|                          2.0|             1.0|\n",
+      "|1000015| P00161842|     M|26-35|         7|            A|                         1|             0|                10|                13|                16|   0.0|      0.0|                          0.0|             2.0|\n",
+      "|1000022| P00067942|     M|18-25|        15|            A|                        4+|             0|                 5|                14|              null|   2.0|      0.0|                          3.0|             2.0|\n",
+      "|1000026| P00046742|     M|26-35|         7|            B|                         2|             1|                 1|                 2|                15|   0.0|      0.0|                          1.0|             0.0|\n",
+      "|1000026| P00040042|     M|26-35|         7|            B|                         2|             1|                 5|              null|              null|   0.0|      0.0|                          1.0|             0.0|\n",
+      "|1000026| P00196542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|                14|   0.0|      0.0|                          1.0|             0.0|\n",
+      "|1000026| P00004542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|              null|   0.0|      0.0|                          1.0|             0.0|\n",
+      "|1000028| P00159542|     F|26-35|         1|            C|                         2|             1|                10|                15|                16|   0.0|      1.0|                          1.0|             1.0|\n",
+      "|1000029| P00111542|     M|36-45|         7|            C|                         1|             0|                 2|                17|              null|   1.0|      0.0|                          0.0|             1.0|\n",
+      "|1000033| P00121042|     M|46-50|         3|            A|                         1|             1|                15|              null|              null|   3.0|      0.0|                          0.0|             2.0|\n",
+      "|1000033| P00344442|     M|46-50|         3|            A|                         1|             1|                 5|                 8|                14|   3.0|      0.0|                          0.0|             2.0|\n",
+      "|1000034| P00265242|     F|18-25|         0|            A|                         0|             0|                 5|                 8|              null|   2.0|      1.0|                          4.0|             2.0|\n",
+      "|1000035|  P0096642|     M|46-50|         1|            C|                        4+|             1|                 2|                 3|                 4|   3.0|      0.0|                          3.0|             1.0|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_data_encoded.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "id": "f3b068db",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "OHE_train = OneHotEncoderEstimator(inputCols=[\"Gender_le\",\n",
+    "                                              \"City_Category_le\",\n",
+    "                                              \"Occupation\"],\n",
+    "                                  outputCols=[\"Gender_ohe\",\n",
+    "                                              \"City_Category_ohe\",\n",
+    "                                              \"Occupation_ohe\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "6fd26969",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# OHE object\n",
+    "OHE_Obj = OHE_train.fit(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "f7906e67",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Transform train data\n",
+    "train_data_encoded = OHE_Obj.transform(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "0e89fe2c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+---------+----------------+----------+-------------+-----------------+---------------+\n",
+      "|Gender_le|City_Category_le|Occupation|   Gender_ohe|City_Category_ohe| Occupation_ohe|\n",
+      "+---------+----------------+----------+-------------+-----------------+---------------+\n",
+      "|      1.0|             2.0|        10|    (1,[],[])|        (2,[],[])|(20,[10],[1.0])|\n",
+      "|      1.0|             2.0|        10|    (1,[],[])|        (2,[],[])|(20,[10],[1.0])|\n",
+      "|      1.0|             2.0|        10|    (1,[],[])|        (2,[],[])|(20,[10],[1.0])|\n",
+      "|      1.0|             2.0|        10|    (1,[],[])|        (2,[],[])|(20,[10],[1.0])|\n",
+      "|      0.0|             1.0|        16|(1,[0],[1.0])|    (2,[1],[1.0])|(20,[16],[1.0])|\n",
+      "|      0.0|             2.0|        15|(1,[0],[1.0])|        (2,[],[])|(20,[15],[1.0])|\n",
+      "|      0.0|             0.0|         7|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|      0.0|             0.0|         7|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|      0.0|             0.0|         7|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|      0.0|             2.0|        20|(1,[0],[1.0])|        (2,[],[])|     (20,[],[])|\n",
+      "|      0.0|             2.0|        20|(1,[0],[1.0])|        (2,[],[])|     (20,[],[])|\n",
+      "|      0.0|             2.0|        20|(1,[0],[1.0])|        (2,[],[])|     (20,[],[])|\n",
+      "|      0.0|             2.0|        20|(1,[0],[1.0])|        (2,[],[])|     (20,[],[])|\n",
+      "|      0.0|             2.0|        20|(1,[0],[1.0])|        (2,[],[])|     (20,[],[])|\n",
+      "|      1.0|             2.0|         9|    (1,[],[])|        (2,[],[])| (20,[9],[1.0])|\n",
+      "|      1.0|             2.0|         9|    (1,[],[])|        (2,[],[])| (20,[9],[1.0])|\n",
+      "|      1.0|             2.0|         9|    (1,[],[])|        (2,[],[])| (20,[9],[1.0])|\n",
+      "|      1.0|             2.0|         9|    (1,[],[])|        (2,[],[])| (20,[9],[1.0])|\n",
+      "|      0.0|             0.0|         1|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[1],[1.0])|\n",
+      "|      0.0|             1.0|        12|(1,[0],[1.0])|    (2,[1],[1.0])|(20,[12],[1.0])|\n",
+      "+---------+----------------+----------+-------------+-----------------+---------------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# view the one hot encoded data\n",
+    "train_data_encoded.select(\"Gender_le\",\n",
+    "                          \"City_Category_le\", \n",
+    "                          \"Occupation\",\n",
+    "                          \"Gender_ohe\",\n",
+    "                          \"City_Category_ohe\",\n",
+    "                          \"Occupation_ohe\").show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "254f06b7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# transform the data\n",
+    "# test data\n",
+    "test_data_encoded = OHE_Obj.transform(test_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "51316a93",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+-------------+-----------------+---------------+\n",
+      "|User_ID|Product_ID|Gender|  Age|Occupation|City_Category|Stay_In_Current_City_Years|Marital_Status|Product_Category_1|Product_Category_2|Product_Category_3|Age_le|Gender_le|Stay_In_Current_City_Years_le|City_Category_le|   Gender_ohe|City_Category_ohe| Occupation_ohe|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+-------------+-----------------+---------------+\n",
+      "|1000004| P00128942|     M|46-50|         7|            B|                         2|             1|                 1|                11|              null|   3.0|      0.0|                          1.0|             0.0|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|1000009| P00113442|     M|26-35|        17|            C|                         0|             0|                 3|                 5|              null|   0.0|      0.0|                          4.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])|(20,[17],[1.0])|\n",
+      "|1000010| P00288442|     F|36-45|         1|            B|                        4+|             1|                 5|                14|              null|   1.0|      1.0|                          3.0|             0.0|    (1,[],[])|    (2,[0],[1.0])| (20,[1],[1.0])|\n",
+      "|1000010| P00145342|     F|36-45|         1|            B|                        4+|             1|                 4|                 9|              null|   1.0|      1.0|                          3.0|             0.0|    (1,[],[])|    (2,[0],[1.0])| (20,[1],[1.0])|\n",
+      "|1000011| P00053842|     F|26-35|         1|            C|                         1|             0|                 4|                 5|                12|   0.0|      1.0|                          0.0|             1.0|    (1,[],[])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "|1000013| P00350442|     M|46-50|         1|            C|                         3|             1|                 2|                 3|                15|   3.0|      0.0|                          2.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "|1000013| P00155442|     M|46-50|         1|            C|                         3|             1|                 1|                11|                15|   3.0|      0.0|                          2.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "|1000013|  P0094542|     M|46-50|         1|            C|                         3|             1|                 2|                 4|                 9|   3.0|      0.0|                          2.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "|1000015| P00161842|     M|26-35|         7|            A|                         1|             0|                10|                13|                16|   0.0|      0.0|                          0.0|             2.0|(1,[0],[1.0])|        (2,[],[])| (20,[7],[1.0])|\n",
+      "|1000022| P00067942|     M|18-25|        15|            A|                        4+|             0|                 5|                14|              null|   2.0|      0.0|                          3.0|             2.0|(1,[0],[1.0])|        (2,[],[])|(20,[15],[1.0])|\n",
+      "|1000026| P00046742|     M|26-35|         7|            B|                         2|             1|                 1|                 2|                15|   0.0|      0.0|                          1.0|             0.0|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|1000026| P00040042|     M|26-35|         7|            B|                         2|             1|                 5|              null|              null|   0.0|      0.0|                          1.0|             0.0|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|1000026| P00196542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|                14|   0.0|      0.0|                          1.0|             0.0|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|1000026| P00004542|     M|26-35|         7|            B|                         2|             1|                 5|                 8|              null|   0.0|      0.0|                          1.0|             0.0|(1,[0],[1.0])|    (2,[0],[1.0])| (20,[7],[1.0])|\n",
+      "|1000028| P00159542|     F|26-35|         1|            C|                         2|             1|                10|                15|                16|   0.0|      1.0|                          1.0|             1.0|    (1,[],[])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "|1000029| P00111542|     M|36-45|         7|            C|                         1|             0|                 2|                17|              null|   1.0|      0.0|                          0.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])| (20,[7],[1.0])|\n",
+      "|1000033| P00121042|     M|46-50|         3|            A|                         1|             1|                15|              null|              null|   3.0|      0.0|                          0.0|             2.0|(1,[0],[1.0])|        (2,[],[])| (20,[3],[1.0])|\n",
+      "|1000033| P00344442|     M|46-50|         3|            A|                         1|             1|                 5|                 8|                14|   3.0|      0.0|                          0.0|             2.0|(1,[0],[1.0])|        (2,[],[])| (20,[3],[1.0])|\n",
+      "|1000034| P00265242|     F|18-25|         0|            A|                         0|             0|                 5|                 8|              null|   2.0|      1.0|                          4.0|             2.0|    (1,[],[])|        (2,[],[])| (20,[0],[1.0])|\n",
+      "|1000035|  P0096642|     M|46-50|         1|            C|                        4+|             1|                 2|                 3|                 4|   3.0|      0.0|                          3.0|             1.0|(1,[0],[1.0])|    (2,[1],[1.0])| (20,[1],[1.0])|\n",
+      "+-------+----------+------+-----+----------+-------------+--------------------------+--------------+------------------+------------------+------------------+------+---------+-----------------------------+----------------+-------------+-----------------+---------------+\n",
+      "only showing top 20 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_data_encoded.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "346aaeb9",
+   "metadata": {},
+   "source": [
+    "# 8 Baseline model wil be a Linear regression model since this is a regression problem trying to find the purchase power of the customer"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "1d261721",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['User_ID',\n",
+       " 'Product_ID',\n",
+       " 'Gender',\n",
+       " 'Age',\n",
+       " 'Occupation',\n",
+       " 'City_Category',\n",
+       " 'Stay_In_Current_City_Years',\n",
+       " 'Marital_Status',\n",
+       " 'Product_Category_1',\n",
+       " 'Product_Category_2',\n",
+       " 'Product_Category_3',\n",
+       " 'Purchase',\n",
+       " 'Age_le',\n",
+       " 'Gender_le',\n",
+       " 'Stay_In_Current_City_Years_le',\n",
+       " 'City_Category_le',\n",
+       " 'Gender_ohe',\n",
+       " 'City_Category_ohe',\n",
+       " 'Occupation_ohe']"
+      ]
+     },
+     "execution_count": 58,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data_encoded.columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6c966b4d",
+   "metadata": {},
+   "source": [
+    "So, now we will select the features and create a vector using VectorAssembler\n",
+    "\n",
+    "Gender_ohe (One Hot Encoded)\n",
+    "Age_le (Label Encode)\n",
+    "Occupation_ohe (One-hot encode)\n",
+    "City category_ohe (One-hot encode)\n",
+    "stay in current city years_le (Label encode)\n",
+    "Product_category_1 (As is)\n",
+    "Marital_status (As is)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "4e48be82",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import the library\n",
+    "from pyspark.ml.feature import VectorAssembler\n",
+    "\n",
+    "# create feature vector\n",
+    "feature_vector = VectorAssembler(inputCols= ['Gender_ohe',\n",
+    "                                             'Age_le',\n",
+    "                                             'Occupation_ohe',\n",
+    "                                             'City_Category_ohe',\n",
+    "                                             'Stay_In_Current_City_Years_le',\n",
+    "                                             'Product_Category_1',\n",
+    "                                             'Marital_Status'],\n",
+    "                                outputCol= 'feature_vector')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "85e5481e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# transform the feature vector\n",
+    "train_data_encoded = feature_vector.transform(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "a75bba27",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+--------------------+\n",
+      "|      feature_vector|\n",
+      "+--------------------+\n",
+      "|(27,[1,12,24,25],...|\n",
+      "|(27,[1,12,24,25],...|\n",
+      "|(27,[1,12,24,25],...|\n",
+      "|(27,[1,12,24,25],...|\n",
+      "|(27,[0,1,18,23,24...|\n",
+      "|(27,[0,17,24,25],...|\n",
+      "|(27,[0,1,9,22,24,...|\n",
+      "|(27,[0,1,9,22,24,...|\n",
+      "|(27,[0,1,9,22,24,...|\n",
+      "|(27,[0,25,26],[1....|\n",
+      "+--------------------+\n",
+      "only showing top 10 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# view the feature vector\n",
+    "train_data_encoded.select(\"feature_vector\").show(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "id": "581b9dd1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "root\n",
+      " |-- User_ID: integer (nullable = true)\n",
+      " |-- Product_ID: string (nullable = true)\n",
+      " |-- Gender: string (nullable = true)\n",
+      " |-- Age: string (nullable = true)\n",
+      " |-- Occupation: integer (nullable = true)\n",
+      " |-- City_Category: string (nullable = true)\n",
+      " |-- Stay_In_Current_City_Years: string (nullable = true)\n",
+      " |-- Marital_Status: integer (nullable = true)\n",
+      " |-- Product_Category_1: integer (nullable = true)\n",
+      " |-- Product_Category_2: integer (nullable = true)\n",
+      " |-- Product_Category_3: integer (nullable = true)\n",
+      " |-- Purchase: integer (nullable = true)\n",
+      " |-- Age_le: double (nullable = false)\n",
+      " |-- Gender_le: double (nullable = false)\n",
+      " |-- Stay_In_Current_City_Years_le: double (nullable = false)\n",
+      " |-- City_Category_le: double (nullable = false)\n",
+      " |-- Gender_ohe: vector (nullable = true)\n",
+      " |-- City_Category_ohe: vector (nullable = true)\n",
+      " |-- Occupation_ohe: vector (nullable = true)\n",
+      " |-- feature_vector: vector (nullable = true)\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# we can see that the data type of the `feature_vector` is vector\n",
+    "train_data_encoded.printSchema()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "a0f21208",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# test data\n",
+    "test_data_encoded = feature_vector.transform(test_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "id": "3262afc7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# importing the libraries\n",
+    "from pyspark.ml.regression import LinearRegression\n",
+    "from pyspark.ml.evaluation import RegressionEvaluator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "099751cc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "LR = LinearRegression(featuresCol='feature_vector', labelCol=\"Purchase\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "7e8fcfe1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model_LR = LR.fit(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "65d453a5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pyspark.ml.evaluation import RegressionEvaluator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "47c51050",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4703.368102509055"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "LR_evaluator = RegressionEvaluator(labelCol=\"Purchase\", metricName=\"rmse\")\n",
+    "LR_evaluator.evaluate(model_LR.transform(train_data_encoded)) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "id": "9c1c3ec1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lr_predictions = model_LR.transform(test_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "5e60ebea",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+------------------+--------------------+\n",
+      "|        prediction|      feature_vector|\n",
+      "+------------------+--------------------+\n",
+      "|11262.008637833615|(27,[0,1,9,22,24,...|\n",
+      "| 11059.64344411907|(27,[0,19,23,24,2...|\n",
+      "| 8778.288556130501|(27,[1,3,22,24,25...|\n",
+      "| 9189.651922156107|(27,[1,3,22,24,25...|\n",
+      "| 9757.713020964482|(27,[3,23,25],[1....|\n",
+      "+------------------+--------------------+\n",
+      "only showing top 5 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "lr_predictions.select(\"prediction\",\"feature_vector\").show(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "id": "c81b103c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import the CrossValidator and ParamGridBuilder\n",
+    "from pyspark.ml.tuning import CrossValidator, ParamGridBuilder"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "02c14ffb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create the ParamGridBuilder\n",
+    "params = ParamGridBuilder().build()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "a207fd76",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create the object of the Logistic Regression Model\n",
+    "model_LR_CV = LinearRegression(featuresCol= \"feature_vector\",  labelCol=\"Purchase\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "id": "05b59749",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create object of the cross validation model with numFolds = 3\n",
+    "cv = CrossValidator(estimator=model_LR_CV,\n",
+    "                    estimatorParamMaps=params,\n",
+    "                    evaluator=LR_evaluator,\n",
+    "                    numFolds=3,\n",
+    "                    seed=27)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "id": "1abb14e3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## fit the model\n",
+    "cv_model = cv.fit(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "de8f5639",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4703.368102509055"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# evaluate the model\n",
+    "LR_evaluator = RegressionEvaluator(labelCol=\"Purchase\", metricName=\"rmse\")\n",
+    "LR_evaluator.evaluate(model_LR.transform(train_data_encoded)) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "ec83e4af",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# evaluate model on validation data\n",
+    "# LR_evaluator.evaluate(cv_model.transform(test_data_encoded))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "1fc2c9ba",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create parameter builder\n",
+    "\n",
+    "updated_params = ParamGridBuilder() \\\n",
+    "                .addGrid(model_LR_CV.regParam, [0.01, 0.005, 0.0001]) \\\n",
+    "                .addGrid(model_LR_CV.elasticNetParam, [0.1, 0.001]) \\\n",
+    "                .build()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "id": "d11ded92",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# create object of the Cross Calidator with 3 folds\n",
+    "cv = CrossValidator(estimator=model_LR_CV,\n",
+    "                    estimatorParamMaps=updated_params,\n",
+    "                    evaluator=LR_evaluator,\n",
+    "                    numFolds=3,\n",
+    "                    seed=27)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "fcf8c96f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# fit the model\n",
+    "grid_model = cv.fit(train_data_encoded)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "id": "c0131936",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4703.368102509055"
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# evaluate the model\n",
+    "evaluator = RegressionEvaluator(labelCol=\"Purchase\", metricName=\"rmse\")\n",
+    "LR_evaluator.evaluate(model_LR.transform(train_data_encoded)) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "id": "7826da39",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# extract the best model parameters dictionary\n",
+    "param_dict = grid_model.bestModel.extractParamMap()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "50437b45",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{Param(parent='LinearRegression_5ec2e1e65300', name='aggregationDepth', doc='suggested depth for treeAggregate (>= 2)'): 2,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='elasticNetParam', doc='the ElasticNet mixing parameter, in range [0, 1]. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty'): 0.1,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='epsilon', doc='The shape parameter to control the amount of robustness. Must be > 1.0.'): 1.35,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='featuresCol', doc='features column name'): 'feature_vector',\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='fitIntercept', doc='whether to fit an intercept term'): True,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='labelCol', doc='label column name'): 'Purchase',\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='loss', doc='The loss function to be optimized. Supported options: squaredError, huber. (Default squaredError)'): 'squaredError',\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='maxIter', doc='maximum number of iterations (>= 0)'): 100,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='predictionCol', doc='prediction column name'): 'prediction',\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='regParam', doc='regularization parameter (>= 0)'): 0.01,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='solver', doc='The solver algorithm for optimization. Supported options: auto, normal, l-bfgs. (Default auto)'): 'auto',\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='standardization', doc='whether to standardize the training features before fitting the model'): True,\n",
+       " Param(parent='LinearRegression_5ec2e1e65300', name='tol', doc='the convergence tolerance for iterative algorithms (>= 0)'): 1e-06}"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "param_dict\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "ffb001e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# created a filtered dictionary\n",
+    "final_dict = {}\n",
+    "for k, v in param_dict.items():\n",
+    "    final_dict[k.name] = v"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "a7896cce",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.1"
+      ]
+     },
+     "execution_count": 86,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# get the best elastic net parameter\n",
+    "final_dict[\"elasticNetParam\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "b2f144aa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.01"
+      ]
+     },
+     "execution_count": 87,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# get the best regularization parameter\n",
+    "final_dict[\"regParam\"]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9f9bcb3d",
+   "metadata": {},
+   "source": [
+    "# Pipe line building"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "f5f20d60",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "train_data_pipeline = spark.read.csv(\"data/train.csv\", inferSchema=True, header=True)\n",
+    "test_data_pipeline = spark.read.csv(\"data/test.csv\", inferSchema=True, header=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "id": "cbd6e85e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "train_data_pipeline = train_data_pipeline.withColumn(\"Purchase\", F.col(\"Purchase\").cast(tp.IntegerType()))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1bdc9d29",
+   "metadata": {},
+   "source": [
+    "# Pipelines\n",
+    "\n",
+    "Stage 1 Remove Columns Product_Category_2, Product_Category_3 from the dataset.\n",
+    "\n",
+    "Stage 2 Label Encode: Age\n",
+    "\n",
+    "Stage 3 Label Encode: Gender\n",
+    "\n",
+    "Stage 4 Label Encode: Stay_In_Current_City_Years\n",
+    "\n",
+    "Stage 5 Label Encode: City_Category\n",
+    "\n",
+    "Stage 6 OHE: Gender, CIty_Category, Occupation\n",
+    "\n",
+    "Stage 7 Create Vector (Gender_ohe', 'Age_le', 'Occupation_ohe', 'City_Category_ohe', 'Stay_In_Current_City_Years_le', 'Product_Category_1', 'Marital_Status')\n",
+    "\n",
+    "STAGE 8: [Estimator] Predict Label Using the Linear Regression"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "id": "601638c8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## Import the Required Libraries \n",
+    "from pyspark.ml import Pipeline\n",
+    "from pyspark.ml.feature import OneHotEncoderEstimator, StringIndexer, VectorAssembler\n",
+    "from pyspark.ml import Transformer\n",
+    "from pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param\n",
+    "from pyspark.ml import classification\n",
+    "from pyspark.ml.regression import LinearRegression"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "2c0b4662",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# custom transformer to drop Product_category_2 & Product_category_3\n",
+    "\n",
+    "class nullValuesTransformer(Transformer):\n",
+    "    \n",
+    "    def __init__(self, dataframe = None):\n",
+    "        self.dataframe = dataframe\n",
+    "    \n",
+    "    def _transform(self, dataframe):\n",
+    "        dataframe = dataframe.drop(\"Product_Category_2\",\"Product_Category_3\")\n",
+    "\n",
+    "        \n",
+    "        return dataframe"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "id": "7d2060e2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Stage 1 - drop null values\n",
+    "stage_1 = nullValuesTransformer()\n",
+    "\n",
+    "# Stage 2 - label encode Age\n",
+    "stage_2 = StringIndexer(inputCol= \"Age\", outputCol= \"Age_le\") \n",
+    "\n",
+    "# Stage 3 - label encode Gender\n",
+    "stage_3 = StringIndexer(inputCol= \"Gender\", outputCol= \"Gender_le\")\n",
+    "\n",
+    "# Stage 4 - label encode Stay_In_Current_City_Years\n",
+    "stage_4 = StringIndexer(inputCol= \"Stay_In_Current_City_Years\", outputCol= \"Stay_In_Current_City_Years_le\")\n",
+    "\n",
+    "# Stage 5 - label encode City_Category\n",
+    "stage_5 = StringIndexer(inputCol= \"City_Category\", outputCol= \"City_Category_le\")\n",
+    "\n",
+    " # Stage 6 - One Hot Encode columns\n",
+    "stage_6 = OneHotEncoderEstimator(inputCols= [\"Gender_le\",  \"City_Category_le\", \"Occupation\"], \n",
+    "                        outputCols= [\"Gender_ohe\",  \"City_Category_ohe\", \"Occupation_ohe\"])\n",
+    "\n",
+    "# Stage 7 - Create vector from the columns\n",
+    "stage_7 = VectorAssembler(inputCols= ['Gender_ohe',\n",
+    "                                             'Age_le',\n",
+    "                                             'Occupation_ohe',\n",
+    "                                             'City_Category_ohe',\n",
+    "                                             'Stay_In_Current_City_Years_le',\n",
+    "                                             'Product_Category_1',\n",
+    "                                             'Marital_Status'],\n",
+    "                         outputCol=  \"feature_vector\")\n",
+    "\n",
+    "# Stage 8 - Train ML model\n",
+    "stage_8 = LinearRegression(featuresCol='feature_vector', labelCol=\"Purchase\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "7036245a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Define pipeline\n",
+    "pipeline = Pipeline(stages= [stage_1,\n",
+    "                             stage_2,\n",
+    "                             stage_3,\n",
+    "                             stage_4,\n",
+    "                             stage_5,\n",
+    "                             stage_6,\n",
+    "                             stage_7,\n",
+    "                             stage_8,\n",
+    "                             ])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "id": "69c04293",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# fit the pipeline with the training data\n",
+    "pipeline_model = pipeline.fit(train_data_pipeline)\n",
+    "\n",
+    "# transform data\n",
+    "final_data = pipeline_model.transform(train_data_pipeline)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "id": "3035c91f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------------+------+--------+\n",
+      "|   Gender_ohe|Age_le|Purchase|\n",
+      "+-------------+------+--------+\n",
+      "|    (1,[],[])|   6.0|    8370|\n",
+      "|    (1,[],[])|   6.0|   15200|\n",
+      "|    (1,[],[])|   6.0|    1422|\n",
+      "|    (1,[],[])|   6.0|    1057|\n",
+      "|(1,[0],[1.0])|   5.0|    7969|\n",
+      "|(1,[0],[1.0])|   0.0|   15227|\n",
+      "|(1,[0],[1.0])|   3.0|   19215|\n",
+      "|(1,[0],[1.0])|   3.0|   15854|\n",
+      "|(1,[0],[1.0])|   3.0|   15686|\n",
+      "|(1,[0],[1.0])|   0.0|    7871|\n",
+      "+-------------+------+--------+\n",
+      "only showing top 10 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "final_data.select(\"Gender_ohe\", \"Age_le\", \"Purchase\").show(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "id": "d47e16d9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "final_test_data = pipeline_model.transform(test_data_pipeline)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "id": "cde431b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+-------------+------+------------------+\n",
+      "|   Gender_ohe|Age_le|        prediction|\n",
+      "+-------------+------+------------------+\n",
+      "|(1,[0],[1.0])|   3.0|11262.008637833615|\n",
+      "|(1,[0],[1.0])|   0.0| 11059.64344411907|\n",
+      "|    (1,[],[])|   1.0| 8778.288556130501|\n",
+      "|    (1,[],[])|   1.0| 9189.651922156107|\n",
+      "|    (1,[],[])|   0.0| 9757.713020964482|\n",
+      "|(1,[0],[1.0])|   3.0|11154.673800946994|\n",
+      "|(1,[0],[1.0])|   3.0|11566.037166972601|\n",
+      "|(1,[0],[1.0])|   3.0|11154.673800946994|\n",
+      "|(1,[0],[1.0])|   0.0| 7292.822625533465|\n",
+      "|(1,[0],[1.0])|   2.0| 9702.928815697838|\n",
+      "+-------------+------+------------------+\n",
+      "only showing top 10 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "final_test_data.select(\"Gender_ohe\", \"Age_le\", \"prediction\").show(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2f73ea02",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
